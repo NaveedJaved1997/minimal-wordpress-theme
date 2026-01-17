@@ -1,0 +1,295 @@
+/*
+Theme Name: Minimal Theme
+Author: NAVEED JAVED
+Description: A clean, minimal WordPress theme (Fancy Version).
+Version: 1.1
+*/
+
+/* 1. Variables & Reset: Define theme colors here */
+:root {
+    --primary: #2c3e50;       /* Dark Blue */
+    --accent: #3498db;        /* Bright Blue */
+    --bg-color: #f0f2f5;      /* Light Grey Background */
+    --card-bg: #ffffff;       /* White Card */
+    --text-color: #444;
+    --shadow: 0 4px 6px rgba(0,0,0,0.1); /* Soft shadow */
+}
+
+* { box-sizing: border-box; }
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Open Sans", sans-serif;
+    margin: 0;
+    padding: 0;
+    background: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.7;
+}
+
+a { color: var(--accent); text-decoration: none; transition: 0.3s; }
+a:hover { color: var(--primary); }
+
+/* 2. Header: Big, bold, and dark */
+header {
+    background: var(--primary);
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    margin-bottom: 40px;
+}
+
+header h1 { margin: 0; font-size: 2.5rem; letter-spacing: 1px; }
+header h1 a { color: white; }
+header p { color: #bdc3c7; margin-top: 10px; font-size: 1.1rem; }
+
+/* 3. Two-Column Layout (CSS Grid) */
+/* Updated Layout: Wider and better proportions */
+#content {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    
+    /* 1fr for content, exactly 300px for sidebar */
+    grid-template-columns: 1fr 300px; 
+    
+    gap: 40px;
+    align-items: start; /* Keep this if you want the "sticky" effect to work */
+}
+
+
+/* 4. Posts: Card Style */
+article {
+    background: var(--card-bg);
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: var(--shadow);
+    transition: transform 0.2s;
+}
+
+article:hover { transform: translateY(-3px); /* Subtle lift effect */ }
+
+article h2 { margin-top: 0; font-size: 1.8rem; }
+article h2 a { color: var(--primary); }
+article h2 a:hover { color: var(--accent); }
+
+/* 5. Sidebar: Sticky */
+aside {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    /* Keeps the sidebar in view while scrolling */
+    position: sticky; 
+    top: 20px; 
+}
+
+aside h3.widget-title {
+    border-bottom: 2px solid var(--bg-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    color: var(--primary);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+/* Widget Lists */
+.widget ul { list-style: none; padding: 0; }
+.widget ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+.widget ul li:last-child { border-bottom: none; }
+
+/* 6. Footer */
+footer {
+    background: var(--primary);
+    color: #bdc3c7;
+    text-align: center;
+    padding: 20px;
+    margin-top: 60px;
+}
+
+/* 7. Mobile Responsive */
+@media (max-width: 768px) {
+    #content {
+        grid-template-columns: 1fr; /* Stack everything in 1 column */
+    }
+    aside {
+        position: static; /* Disable sticky on mobile */
+    }
+}
+
+/* 8. Single Post & Page Styling*/
+
+/* RESPONSIVE IMAGES & CONTENT
+   Ensures images inside posts never overflow the screen on mobile */
+.entry-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin: 20px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Better typography for long reading */
+.entry-content p {
+    margin-bottom: 1.5em;
+    font-size: 1.05rem; /* Slightly larger text for readability */
+}
+
+.entry-content h3, .entry-content h4 {
+    color: var(--primary);
+    margin-top: 2em;
+    margin-bottom: 0.5em;
+}
+
+/* Blockquotes (for quoted text in posts) */
+.entry-content blockquote {
+    border-left: 5px solid var(--accent);
+    margin: 20px 0;
+    padding: 15px 20px;
+    background: #f9f9f9;
+    font-style: italic;
+    color: #555;
+    border-radius: 0 4px 4px 0;
+}
+
+/* Lists inside posts */
+.entry-content ul, .entry-content ol {
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+/* 9. Meta Data & Navigation (Single.php) */
+
+/* The "By Author | Date" bar */
+.post-meta {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    flex-wrap: wrap; /* Wraps items nicely on small mobile screens */
+    gap: 15px;
+}
+
+.post-meta span {
+    display: flex;
+    align-items: center;
+}
+
+/* Next / Previous Links at bottom of post */
+.post-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px solid #f0f2f5;
+    font-weight: bold;
+}
+
+/* 10. Comments Section*/
+
+.comments-area {
+    margin-top: 40px;
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.comments-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--bg-color);
+    padding-bottom: 10px;
+}
+
+/* The List of Comments */
+.comment-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.comment-body {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.comment-author .fn {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: var(--primary);
+    margin-right: 5px;
+}
+
+.comment-metadata {
+    font-size: 0.85rem;
+    color: #aaa;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.comment-metadata a { color: #aaa; }
+
+/* The "Leave a Reply" Form */
+.comment-reply-title {
+    font-size: 1.2rem;
+    margin-top: 30px;
+    display: block;
+}
+
+.comment-form textarea, 
+.comment-form input[type="text"], 
+.comment-form input[type="email"],
+.comment-form input[type="url"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-family: inherit;
+    background: #fafafa;
+}
+
+.form-submit .submit {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.form-submit .submit:hover {
+    background: var(--primary);
+}
+
+/* 11. Mobile Tweaks for Single Views*/
+@media (max-width: 600px) {
+    /* Stack the Next/Prev links vertically on phones */
+    .post-navigation {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    /* Adjust padding for smaller screens */
+    article, .comments-area {
+        padding: 20px; 
+    }
+    
+    .comment-author .avatar {
+        width: 40px;
+        height: 40px;
+    }
+}
