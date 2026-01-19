@@ -9,8 +9,16 @@
 <body <?php body_class(); ?>>
 
 <header>
-    <h1><a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ); ?></a></h1>
-    <p><?php bloginfo( 'description' ); ?></p>
+    <div class="header-content">
+        <?php if ( has_custom_logo() ) : ?>
+            <div class="site-logo">
+                <?php the_custom_logo(); ?>
+            </div>
+        <?php endif; ?>
+
+        <h1><a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ); ?></a></h1>
+        <p><?php bloginfo( 'description' ); ?></p>
+    </div>
 </header>
 
 <div id="content">

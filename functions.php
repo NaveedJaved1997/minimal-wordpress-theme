@@ -1,12 +1,27 @@
 <?php
+// 1. Theme Setup (Logos, Title Tags, etc.) - Runs FIRST
 function minimal_theme_setup() {
-    // 1. Load the style.css file
+    // Enable Logo Support
+    add_theme_support( 'custom-logo', array(
+        'height'      => 100,
+        'width'       => 100,
+        'flex-height' => true,
+        'flex-width'  => true,
+    ) );
+
+    // Optional: Let WordPress handle the <title> tag
+    add_theme_support( 'title-tag' );
+}
+add_action( 'after_setup_theme', 'minimal_theme_setup' );
+
+// 2. Load Styles - Runs LATER
+function minimal_load_styles() {
     wp_enqueue_style( 'main-style', get_stylesheet_uri() );
 }
-add_action( 'wp_enqueue_scripts', 'minimal_theme_setup' );
+add_action( 'wp_enqueue_scripts', 'minimal_load_styles' );
 
+// 3. Register Sidebar
 function minimal_register_sidebars() {
-    // 2. Register a Sidebar for widgets
     register_sidebar( array(
         'name'          => 'Main Sidebar',
         'id'            => 'sidebar-1',

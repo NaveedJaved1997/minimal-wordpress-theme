@@ -33,16 +33,57 @@ a:hover { color: var(--primary); }
 header {
     background: var(--primary);
     color: white;
-    padding: 50px 20px;
+    padding: 40px 20px;
     text-align: center;
     box-shadow: var(--shadow);
     margin-bottom: 40px;
 }
-
+/* Flexbox to align Logo + Title nicely */
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+/*
 header h1 { margin: 0; font-size: 2.5rem; letter-spacing: 1px; }
 header h1 a { color: white; }
 header p { color: #bdc3c7; margin-top: 10px; font-size: 1.1rem; }
+*/
+/* Logo Styling - Keeps it small */
+.custom-logo-link img {
+    max-width: 80px;  /* Force small size */
+    height: auto;
+    border-radius: 50%; /* Optional: Makes it circular */
+    border: 3px solid rgba(255,255,255,0.2); /* Nice subtle border */
+    margin-bottom: 15px;
+}
 
+/* Title Styling */
+header h1 { 
+    margin: 0; 
+    font-size: 2.5rem; 
+    letter-spacing: 1px; 
+    line-height: 1.2;
+}
+
+/* FIX: Specific Hover Color for Header */
+header h1 a { 
+    color: white; 
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* When hovering header title, turn Light Blue (Accent) instead of Dark Blue */
+header h1 a:hover { 
+    color: var(--accent); 
+}
+
+header p { 
+    color: #bdc3c7; 
+    margin-top: 5px; 
+    font-size: 1.1rem; 
+}
 /* 3. Two-Column Layout (CSS Grid) */
 /* Updated Layout: Wider and better proportions */
 #content {
