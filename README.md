@@ -44,5 +44,5 @@ A lightweight, modern WordPress theme built from scratch. This project demonstra
 
 ## 📝 Author
 
-**[Your Name]**
+**Naveed Javed**
 * *Built as part of a Full Stack WordPress Development learning path.*
