@@ -2,10 +2,12 @@
 Theme Name: Minimal Theme
 Author: NAVEED JAVED
 Description: A clean, minimal WordPress theme (Fancy Version).
-Version: 1.1
+Version: 1.2
 */
 
-/* 1. Variables & Reset: Define theme colors here */
+/* =========================================
+   1. Variables & Reset
+   ========================================= */
 :root {
     --primary: #2c3e50;       /* Dark Blue */
     --accent: #3498db;        /* Bright Blue */
@@ -29,7 +31,9 @@ body {
 a { color: var(--accent); text-decoration: none; transition: 0.3s; }
 a:hover { color: var(--primary); }
 
-/* 2. Header: Big, bold, and dark */
+/* =========================================
+   2. Header
+   ========================================= */
 header {
     background: var(--primary);
     color: white;
@@ -38,24 +42,20 @@ header {
     box-shadow: var(--shadow);
     margin-bottom: 40px;
 }
-/* Flexbox to align Logo + Title nicely */
+
 .header-content {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-/*
-header h1 { margin: 0; font-size: 2.5rem; letter-spacing: 1px; }
-header h1 a { color: white; }
-header p { color: #bdc3c7; margin-top: 10px; font-size: 1.1rem; }
-*/
-/* Logo Styling - Keeps it small */
+
+/* Logo Styling */
 .custom-logo-link img {
-    max-width: 80px;  /* Force small size */
+    max-width: 80px;
     height: auto;
-    border-radius: 50%; /* Optional: Makes it circular */
-    border: 3px solid rgba(255,255,255,0.2); /* Nice subtle border */
+    border-radius: 50%;
+    border: 3px solid rgba(255,255,255,0.2);
     margin-bottom: 15px;
 }
 
@@ -67,14 +67,12 @@ header h1 {
     line-height: 1.2;
 }
 
-/* FIX: Specific Hover Color for Header */
 header h1 a { 
     color: white; 
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
-/* When hovering header title, turn Light Blue (Accent) instead of Dark Blue */
 header h1 a:hover { 
     color: var(--accent); 
 }
@@ -84,67 +82,53 @@ header p {
     margin-top: 5px; 
     font-size: 1.1rem; 
 }
-/* 3. Two-Column Layout (CSS Grid) */
-/* Updated Layout: Wider and better proportions */
+
+/* =========================================
+   3. Layout (CSS Grid)
+   ========================================= */
 #content {
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 20px;
     display: grid;
-    
-    /* 1fr for content, exactly 300px for sidebar */
-    grid-template-columns: 1fr 300px; 
-    
+    grid-template-columns: 1fr 300px; /* Content + Sidebar */
     gap: 40px;
-    align-items: start; /* Keep this if you want the "sticky" effect to work */
+    align-items: start;
 }
 
-
-/* 4. Posts: Card Style */
+/* =========================================
+   4. Posts: Card Style
+   ========================================= */
 article {
     background: var(--card-bg);
     padding: 30px;
     margin-bottom: 30px;
-    border-radius: 8px; /* Rounded corners */
+    border-radius: 8px;
     box-shadow: var(--shadow);
     transition: transform 0.2s;
 }
 
-article:hover { transform: translateY(-3px); /* Subtle lift effect */ }
+article:hover { transform: translateY(-3px); }
 
 article h2 { margin-top: 0; font-size: 1.8rem; }
 article h2 a { color: var(--primary); }
 article h2 a:hover { color: var(--accent); }
 
-/* 5. Sidebar: Sticky */
+/* =========================================
+   5. Sidebar Container (Sticky)
+   ========================================= */
 aside {
     background: var(--card-bg);
     padding: 25px;
     border-radius: 8px;
     box-shadow: var(--shadow);
-    /* Keeps the sidebar in view while scrolling */
     position: sticky; 
     top: 20px; 
 }
 
-aside h3.widget-title {
-    border-bottom: 2px solid var(--bg-color);
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    color: var(--primary);
-    font-size: 1.2rem;
-    text-transform: uppercase;
-}
-
-/* Widget Lists */
-.widget ul { list-style: none; padding: 0; }
-.widget ul li {
-    padding: 10px 0;
-    border-bottom: 1px solid #eee;
-}
-.widget ul li:last-child { border-bottom: none; }
-
-/* 6. Footer */
+/* =========================================
+   6. Footer
+   ========================================= */
 footer {
     background: var(--primary);
     color: #bdc3c7;
@@ -153,20 +137,21 @@ footer {
     margin-top: 60px;
 }
 
-/* 7. Mobile Responsive */
+/* =========================================
+   7. Mobile Responsive
+   ========================================= */
 @media (max-width: 768px) {
     #content {
-        grid-template-columns: 1fr; /* Stack everything in 1 column */
+        grid-template-columns: 1fr;
     }
     aside {
-        position: static; /* Disable sticky on mobile */
+        position: static;
     }
 }
 
-/* 8. Single Post & Page Styling*/
-
-/* RESPONSIVE IMAGES & CONTENT
-   Ensures images inside posts never overflow the screen on mobile */
+/* =========================================
+   8. Single Post Styling
+   ========================================= */
 .entry-content img {
     max-width: 100%;
     height: auto;
@@ -175,10 +160,9 @@ footer {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* Better typography for long reading */
 .entry-content p {
     margin-bottom: 1.5em;
-    font-size: 1.05rem; /* Slightly larger text for readability */
+    font-size: 1.05rem;
 }
 
 .entry-content h3, .entry-content h4 {
@@ -187,7 +171,6 @@ footer {
     margin-bottom: 0.5em;
 }
 
-/* Blockquotes (for quoted text in posts) */
 .entry-content blockquote {
     border-left: 5px solid var(--accent);
     margin: 20px 0;
@@ -198,15 +181,14 @@ footer {
     border-radius: 0 4px 4px 0;
 }
 
-/* Lists inside posts */
 .entry-content ul, .entry-content ol {
     margin-bottom: 20px;
     padding-left: 20px;
 }
 
-/* 9. Meta Data & Navigation (Single.php) */
-
-/* The "By Author | Date" bar */
+/* =========================================
+   9. Meta Data & Navigation
+   ========================================= */
 .post-meta {
     font-size: 0.9rem;
     color: #7f8c8d;
@@ -214,16 +196,10 @@ footer {
     padding-bottom: 15px;
     border-bottom: 1px solid #eee;
     display: flex;
-    flex-wrap: wrap; /* Wraps items nicely on small mobile screens */
+    flex-wrap: wrap;
     gap: 15px;
 }
 
-.post-meta span {
-    display: flex;
-    align-items: center;
-}
-
-/* Next / Previous Links at bottom of post */
 .post-navigation {
     display: flex;
     justify-content: space-between;
@@ -233,53 +209,32 @@ footer {
     font-weight: bold;
 }
 
-/* 10. Comments Section*/
-
+/* =========================================
+   10. Comments Section (Clean Version)
+   ========================================= */
 .comments-area {
     margin-top: 40px;
-    background: var(--card-bg);
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: var(--shadow);
+    background: transparent; /* No card bg */
+    box-shadow: none;
+    padding: 0;
+    border-top: 2px solid #eaeaea;
+    padding-top: 20px;
 }
 
 .comments-title {
     font-size: 1.5rem;
-    margin-bottom: 20px;
-    border-bottom: 2px solid var(--bg-color);
-    padding-bottom: 10px;
-}
-
-/* The List of Comments */
-.comment-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    margin-bottom: 30px;
+    color: var(--primary);
 }
 
 .comment-body {
+    background: #fff;
+    padding: 20px;
     margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #eee;
+    border-radius: 4px;
+    border: 1px solid #eee;
 }
 
-.comment-author .fn {
-    font-weight: bold;
-    font-size: 1.1rem;
-    color: var(--primary);
-    margin-right: 5px;
-}
-
-.comment-metadata {
-    font-size: 0.85rem;
-    color: #aaa;
-    margin-bottom: 10px;
-    display: block;
-}
-
-.comment-metadata a { color: #aaa; }
-
-/* The "Leave a Reply" Form */
 .comment-reply-title {
     font-size: 1.2rem;
     margin-top: 30px;
@@ -306,7 +261,6 @@ footer {
     padding: 12px 25px;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 1rem;
     font-weight: bold;
     transition: background 0.3s ease;
 }
@@ -315,32 +269,12 @@ footer {
     background: var(--primary);
 }
 
-/* 11. Mobile Tweaks for Single Views*/
-@media (max-width: 600px) {
-    /* Stack the Next/Prev links vertically on phones */
-    .post-navigation {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-    }
-
-    /* Adjust padding for smaller screens */
-    article, .comments-area {
-        padding: 20px; 
-    }
-    
-    .comment-author .avatar {
-        width: 40px;
-        height: 40px;
-    }
-}
 /* =========================================
-   12. Navigation Menu
+   11. Navigation Menu
    ========================================= */
-
 .main-navigation {
     margin-top: 25px;
-    border-top: 1px solid rgba(255,255,255,0.1); /* Subtle separator line */
+    border-top: 1px solid rgba(255,255,255,0.1);
     padding-top: 20px;
     width: 100%;
 }
@@ -349,18 +283,16 @@ footer {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex; /* Makes the list horizontal */
-    justify-content: center; /* Centers the menu items */
-    flex-wrap: wrap; /* Allows items to stack on small screens */
-    gap: 30px; /* Space between links */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
 }
 
-.main-navigation ul li {
-    display: inline-block;
-}
+.main-navigation ul li { display: inline-block; }
 
 .main-navigation ul li a {
-    color: #bdc3c7; /* Light grey text */
+    color: #bdc3c7;
     text-decoration: none;
     font-weight: bold;
     font-size: 1rem;
@@ -369,12 +301,174 @@ footer {
     transition: color 0.3s ease;
 }
 
-.main-navigation ul li a:hover {
-    color: var(--accent); /* Bright Blue on hover */
-}
+.main-navigation ul li a:hover { color: var(--accent); }
 
-/* Optional: Highlight the "Active" page */
 .main-navigation .current-menu-item a {
     color: white;
     border-bottom: 2px solid var(--accent);
+}
+
+/* =========================================
+   12. Universal Sidebar Design
+   ========================================= */
+
+/* Make EVERY widget look like a distinct card */
+aside .widget {
+    background: #ffffff;       /* Clean white background */
+    padding: 30px;             /* Generous padding */
+    margin-bottom: 30px;       /* Space between widgets */
+    border-radius: 12px;       /* Smooth rounded corners */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Soft, floating shadow */
+    border: 1px solid #f0f0f0; /* Subtle border definition */
+    transition: transform 0.3s ease;
+}
+
+/* Hover Effect: The widget floats up slightly */
+aside .widget:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+/* Widget Titles (Universal) */
+aside h2, aside h3 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--primary);
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--bg-color); /* Decorative underline */
+    position: relative;
+}
+
+/* Add a small colored accent line under the title */
+aside h2::after, aside h3::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 50px; /* Short accent line */
+    height: 2px;
+    background: var(--accent);
+}
+
+/* Universal List Styling (for Categories, Recent Posts, Archives) */
+aside ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+aside li {
+    padding: 12px 0;
+    border-bottom: 1px dashed #eee; /* Light dashed separator */
+    font-size: 0.95rem;
+    display: flex;
+    justify-content: space-between; /* Pushes counts to the right */
+    align-items: center;
+}
+
+aside li:last-child {
+    border-bottom: none;
+}
+
+aside a {
+    color: #555;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+aside a:hover {
+    color: var(--accent);
+}
+
+/* Universal Input Styling (Search bars, Email signups) */
+aside input[type="search"], 
+aside input[type="text"], 
+aside input[type="email"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #eee;
+    border-radius: 25px; /* Pill shape */
+    background: #fafafa;
+    outline: none;
+    transition: all 0.3s;
+}
+
+aside input:focus {
+    border-color: var(--accent);
+    background: #fff;
+}
+
+/* Universal Button Styling (Search buttons, Submit buttons) */
+aside button, aside input[type="submit"] {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%; /* Full width buttons look better in sidebars */
+    transition: background 0.3s;
+}
+
+aside button:hover, aside input[type="submit"]:hover {
+    background: var(--accent);
+}
+/* =========================================
+   Fix for Recent Comments Widget
+   ========================================= */
+
+/* 1. Reset the "card" style for comment list items */
+    .wp-block-group__inner-container ol li article {
+        box-shadow: none;
+        padding: 0;
+    }
+    .wp-block-group__inner-container ol li article footer {
+    background: transparent;
+    padding: 0;
+    }
+
+/* =========================================
+   Vertical Search Bar Styling (FIXED)
+   ========================================= */
+
+/* 1. Target the specific internal wrapper of the Block Widget */
+.wp-block-search__inside-wrapper {
+    display: flex !important;
+    flex-direction: column !important; /* Forces stacking */
+    gap: 10px !important;
+    width: 100% !important;
+    border: none !important; /* Removes default wrapper border if present */
+}
+
+/* 2. Target the Form element itself (just in case) */
+.widget_search .search-form,
+.wp-block-search {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+}
+
+/* 3. Force Input and Button to be Full Width */
+.widget_search .search-field,
+.wp-block-search__input,
+.widget_search .search-submit,
+.wp-block-search__button {
+    width: 100% !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important; /* Keeps padding inside the width */
+}
+
+/* 4. Center text in the button */
+.wp-block-search__button {
+    text-align: center;
+    justify-content: center;
 }
