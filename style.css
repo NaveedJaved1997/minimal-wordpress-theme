@@ -472,3 +472,25 @@ aside button:hover, aside input[type="submit"]:hover {
     text-align: center;
     justify-content: center;
 }
+
+/* =========================================
+   Featured Images
+   ========================================= */
+
+.post-thumbnail {
+    margin-bottom: 20px;
+    border-radius: 4px;
+    overflow: hidden; /* Clips the image to rounded corners */
+}
+
+.post-thumbnail img {
+    width: 100%;       /* Forces image to fit the container width */
+    height: auto;      /* Maintains aspect ratio */
+    display: block;    /* Removes tiny space below image */
+    transition: transform 0.3s ease;
+}
+
+/* Optional: Zoom effect on hover */
+article:hover .post-thumbnail img {
+    transform: scale(1.02);
+}

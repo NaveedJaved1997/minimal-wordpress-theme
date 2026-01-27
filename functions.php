@@ -12,7 +12,10 @@ function minimal_theme_setup() {
     // 2. Enable Title Tag
     add_theme_support( 'title-tag' );
 
-    // 3. Register Navigation Menu
+    // 3. Enable Featured Images
+    add_theme_support( 'post-thumbnails' );
+
+    // 4. Register Navigation Menu
     register_nav_menus( array(
         'primary-menu' => 'Main Header Menu',
     ) );
